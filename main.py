@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import signal,os,gi,threading,socket,time,datetime,vlc,pigpio
+import signal,os,gi,threading,socket,time,datetime,vlc,pigpio,Adafruit_DHT
 from PerpetualTimer import PerpetualTimer
+import classmysql
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GLib, GObject
 from datetime import datetime
@@ -9,6 +10,7 @@ os.system("sudo pigpiod")
 #os.system("sudo swapoff -a")
 
 off=[666,0,0,False,666,0]
+#время отключения дисплея,позиции мышки,Доп меню света,Запись видео
 class structure:
     structure=[[0, False, 'TV', 666, 666, 0], [1, False, '', 666, 666, -1,b"\x00"], [2, False, 'Свалка', 666, 666, -1,b"\x01"], [3, False, '', 666, 666, -1,b"\x02"], [4, False, 'Cпальня', 666, 666, 4,b"\x03"],
 [5, False, '', 666, 666, -1,b"\x04"], [6, False, 'Коридор', 666, 666, -1,b"\x05"], [7, False, '', 666, 666, -1,b"\x06"], [8, False, 'кухня', 666, 666, 1,b"\x07"], [9, False, '', 666, 666, -1,b"\x08"],
@@ -48,7 +50,6 @@ class GPIO(threading.Thread):
     def run(self):
        pass
     def GPIOon(self, gpio, level, tick):
-       print(time.ctime(time.time()),"!!!GPIO", gpio, level, tick)
        if(gpio==20):#Туалет
           WS16Thread.send(16,True)
           structure.set_timers(16,time.time()+60)
@@ -80,6 +81,7 @@ class GPIO(threading.Thread):
              else:
                 WS16Thread.send(8,False)
                 WS16Thread.send(14,True)
+       sql.addlog("INSERT INTO `GPIO` (`pin`,`val`) VALUES ("+str(gpio)+","+str(level)+")")
 
 class WS16Thread(threading.Thread):
     t=False
@@ -107,9 +109,8 @@ class WS16Thread(threading.Thread):
                    structure.set_value(i,True)
                 if(structure.get_button(i)>=0):
                    GLib.idle_add(builder.get_object("i"+str(structure.get_button(i))).set_from_file,"button"+str(int(structure.get_value(i)))+".png")
-                   #builder.get_object("i"+str(structure.get_button(i))).set_from_file("button"+str(int(structure.get_value(i)))+".png")
                 i=i+1
-          time.sleep(0.1)
+          time.sleep(0.01)
     def send(self,pin,val):
       if (pin>-1):
          if (val==9):
@@ -122,7 +123,6 @@ class WS16Thread(threading.Thread):
 
     def sw16send(self):
        pin,val=self.mas.pop(0)
-       print('>!sw16',[pin,val])
        if (pin==-1):
           self.ws16.send(b"\xaa\x1e\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\xbb")
        else:
@@ -133,6 +133,7 @@ class WS16Thread(threading.Thread):
                  self.ws16.send(b"\xaa\x0f"+structure.get_ws16(pin)+b"\x02\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\xbb")
        if(len(self.mas)==0):
           self.t.cancel()
+       sql.addlog("INSERT INTO `SW16` (`pin`,`val`) VALUES ("+str(pin)+","+str(val)+")")
 
 
 class connectsignals:
@@ -223,7 +224,7 @@ def OnTimer():
 
    if((off[0]!=666)&(time.time()-off[0]>=0)):
       off[0]=666
-      os.system("vcgencmd display_power 0 >>/dev/null")
+#      os.system("vcgencmd display_power 0 >>/dev/null")
    if(off[4]!=666):
       if(time.time()-off[4]>=0):
          off[4]=666
@@ -244,7 +245,31 @@ def OnTimer():
          WS16Thread.send(s[0],False)
          s[3]=666
 
+class DHT(threading.Thread):
+    humidity=0
+    temperature=0
+    oldhumidity=0
+    oldtemperature=0
+    
+    def __init__(self):
+       threading.Thread.__init__(self)
+    def run(self):
+       while True:
+          self.humidity, self.temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
+          if self.humidity is not None and self.temperature is not None:
+             if (self.temperature!=self.oldtemperature)or(self.humidity!=self.oldhumidity):
+                GLib.idle_add(builder.get_object("temperature").set_text,str(self.temperature)+"°")
+                GLib.idle_add(builder.get_object("humidity").set_text,str(self.humidity)+"%")
+                sql.addlog("INSERT INTO `DHT` ( `humidity`, `temperature`) VALUES ('"+str(self.humidity)+"', '"+str(self.temperature)+"');")
+                self.oldtemperature=self.temperature
+                self.oldhumidity=self.humidity
+          else:
+             print('Failed to get reading. Try again!')
+          time.sleep(60)
 
+sql = classmysql.mysql()
+sql.start()
+sql.addlog("INSERT INTO `sys` (`text`) VALUES ( 'start')")
 GPIO = GPIO()
 GPIO.start()
 
@@ -268,6 +293,8 @@ builder.get_object("МенюСвета").hide()
 
 WS16Thread = WS16Thread()
 WS16Thread.start()
+DHT = DHT()
+DHT.start()
 timer = PerpetualTimer(0.1, OnTimer)
 timer.start()
 Gtk.main()
