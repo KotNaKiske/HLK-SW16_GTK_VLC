@@ -1,2 +1,2 @@
 # HLK-SW16_GTK_VLC
-пример управления HLK-SW16 
+управлениe HLK-SW16 на raspberry pi
