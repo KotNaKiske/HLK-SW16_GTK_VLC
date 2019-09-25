@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkWindow" id="window">
+    <property name="can_focus">False</property>
+    <signal name="button-press-event" handler="onbutton" swapped="no"/>
+    <signal name="button-release-event" handler="onbutton" swapped="no"/>
+    <child>
+      <object class="GtkFixed" id="fixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <child>
+          <object class="GtkBox" id="Главный">
+            <property name="width_request">1024</property>
+            <property name="height_request">768</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox" id="top">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="b0">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f0">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i0">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button0.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l0">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">ТВ</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t0">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="b1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f1">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i1">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button1.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l1">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Кухня</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t1">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="b2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f2">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i2">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button1.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l2">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Зал</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t2">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="b3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f3">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i3">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button1.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l3">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Ванная</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t3">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="b4">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f4">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i4">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button1.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l4">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Спальня</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t4">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="b5">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f5">
+                        <property name="width_request">128</property>
+                        <property name="height_request">64</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i5">
+                            <property name="width_request">128</property>
+                            <property name="height_request">64</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button1.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l5">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="t5">
+                            <property name="width_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="justify">right</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 10"/>
+                              <attribute name="foreground" value="#eeeeeeeeecec"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="y">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="date">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">end</property>
+                    <property name="label" translatable="yes">label</property>
+                    <property name="justify">right</property>
+                    <attributes>
+                      <attribute name="font-desc" value="&lt;Enter Value&gt; 20"/>
+                      <attribute name="foreground" value="#ffffffffffff"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">8</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkDrawingArea" id="video">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="Обычный">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="clock">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">label</property>
+                    <attributes>
+                      <attribute name="font-desc" value="Segoe UI Bold 80"/>
+                      <attribute name="foreground" value="#ffffffffffff"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="МенюСвета">
+            <property name="width_request">600</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="sl0">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Время до выключения</property>
+                <attributes>
+                  <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                  <attribute name="foreground" value="#ffffffffffff"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid1">
+                <property name="width_request">600</property>
+                <property name="height_request">200</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="g0">
+                    <property name="width_request">300</property>
+                    <property name="height_request">100</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f6">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i6">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button2.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l6">
+                            <property name="width_request">300</property>
+                            <property name="height_request">100</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">ОТКЛЮЧИТЬ</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#ffffffffffff"/>
+                            </attributes>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="g1">
+                    <property name="width_request">300</property>
+                    <property name="height_request">100</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f7">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i7">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button2.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l7">
+                            <property name="width_request">300</property>
+                            <property name="height_request">100</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">5 МИНУТ</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#ffffffffffff"/>
+                            </attributes>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="g2">
+                    <property name="width_request">300</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f8">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i8">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button2.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l8">
+                            <property name="width_request">300</property>
+                            <property name="height_request">100</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">ВКЛЮЧИТЬ</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#ffffffffffff"/>
+                            </attributes>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="g3">
+                    <property name="width_request">300</property>
+                    <property name="height_request">100</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="buttonclick" swapped="no"/>
+                    <child>
+                      <object class="GtkFixed" id="f9">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="i9">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">button2.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="l9">
+                            <property name="width_request">300</property>
+                            <property name="height_request">100</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">20 МИНУТ</property>
+                            <property name="justify">center</property>
+                            <attributes>
+                              <attribute name="font-desc" value="&lt;Enter Value&gt; 16"/>
+                              <attribute name="weight" value="bold"/>
+                              <attribute name="foreground" value="#ffffffffffff"/>
+                            </attributes>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="y">80</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
