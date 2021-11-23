@@ -2,17 +2,41 @@ window {
     background-color: #000000;
 }
 button{
-    background-color: #000000;
-    background: #000000;
-    border-color: #000000;
-    margin: 0px;
-    -GtkButton-margin : 0 0 0 0;
-    -GtkButton-padding : 0 0 0 0;
-    -GtkWidget-outline-width : 0;
-    -GtkWidget-outline-offset : 0;
-    padding: 0;
-    border: none;
-    border-radius: 100px;
-    border-color: #000000;
+    border-radius: 15px;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (#000000, 0.95)),
+                                     to (shade (#424242, 0.85)));
+    border-color: #424242;
+    margin: 1px;
 }
-
+button.green{
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (#000000, 0.1)),
+                                     to (shade (green, 1)));
+}
+button.red{
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (#000000, 0.1)),
+                                     to (shade (red, 1)));
+}
+scale slider{
+    min-height: 50px;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (#000000, 0.95)),
+                                     to (shade (#424242, 0.85)))
+}
+scale trough {
+    background-color: red;
+    color: red;
+}
+switch slider{
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (#000000, 0.95)),
+                                     to (shade (#424242, 0.85)))
+}
+switch:checked{
+    background-color: green;
+}
+switch{
+    background-color: red;
+}
